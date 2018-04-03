@@ -3,6 +3,16 @@
 #include "Matrix.hh"
 using namespace std;
 
+
+ostream& operator << (ostream& s, Matrix m){
+    for(int i = 0; i<m.rows; i++){
+        for(int j = 0; j<m.cols; j++)
+            cout << setw(5) << m.mat[i*m.cols + j] << setw(3) << " ";
+        cout << '\n';
+    }
+
+    return s;
+}
 Matrix operator +(Matrix left, Matrix right){
     if(left.rows != right.rows || left.cols != right.cols){
         cout << "Dimensions are not matching: " << '(' << left.rows << ',' << left.cols << ')' << ',' << '(' << right.rows << ',' << right.cols << ')';
