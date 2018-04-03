@@ -1,3 +1,8 @@
+#include <iostream>
+#include <iomanip>
+#include "Matrix.hh"
+using namespace std;
+
 Matrix operator*(Matrix a, Matrix b) {
     Matrix c(a.rows, b.cols);
     for (int i = 0; i < c.rows; i++) {
