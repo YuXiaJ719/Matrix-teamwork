@@ -3,6 +3,19 @@
 #include "Matrix.hh"
 using namespace std;
 
+Matrix operator +(Matrix left, Matrix right){
+    if(left.rows != right.rows || left.cols != right.cols){
+        cout << "Dimensions are not matching: " << '(' << left.rows << ',' << left.cols << ')' << ',' << '(' << right.rows << ',' << right.cols << ')';
+        return Matrix(0, 0, 0);
+    }
+    int size = left.rows * right.cols;
+    Matrix res(left.rows, left.cols);
+    for(int i = 0; i < size; i++)
+        res.mat[i] = left.mat[i] + right.mat[i];
+    
+    return res;
+}
+
 Matrix operator*(Matrix a, Matrix b) {
     Matrix c(a.rows, b.cols);
     for (int i = 0; i < c.rows; i++) {
