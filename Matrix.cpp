@@ -37,3 +37,19 @@ Matrix operator*(Matrix a, Matrix b) {
     }
     return c;
 }
+
+Matrix& Matrix::operator =(const Matrix& orig){
+    if(this != &orig){
+        delete [] mat;
+
+        rows = orig.rows;
+        cols = orig.cols;
+
+        mat = new double[rows*cols];
+
+        for(int i = 0; i < rows*cols; i++)
+            mat[i] = orig.mat[i];
+    }
+
+    return *this;
+}
